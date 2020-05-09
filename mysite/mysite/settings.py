@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.messages',
+    'django.contrib.postgres',
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.sitemaps',
@@ -86,11 +87,15 @@ WSGI_APPLICATION = 'mysite.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.0/ref/settings/#databases
+# migrate sqlite data to postgreSQL
+# https://dev.to/coderasha/how-to-migrate-data-from-sqlite-to-postgresql-in-django-182h
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'blog',
+        'USER': 'blog',
+        'PASSWORD': 'password',
     }
 }
 
